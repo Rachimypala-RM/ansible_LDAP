@@ -1,13 +1,13 @@
 - name: Create Data directory for FreeIPA Server (LDAP)
 #  become: yes
   ansible.builtin.file:
-    path: /home/ec2-user/DATA/freeIPA/ipa-data
+    path: /home/{{ ansible_user }}/DATA/freeIPA/ipa-data
     state: directory
 
 - name: Create FreeIPA options file (LDAP)
   ansible.builtin.copy:
-    dest: /home/ec2-user/DATA/freeIPA/ipa-data/ipa-server-install-options
-    owner: ec2-user
+    dest: /home/{{ ansible_user }}/DATA/freeIPA/ipa-data/ipa-server-install-options
+    owner: {{ ansible_user }}
     mode: '0600'
     content: |
       --realm=COMPUTE-1.AMAZONAWS.COM
@@ -46,7 +46,7 @@
       - "464:464/udp"
       - "123:123/udp"
     volumes:
-      - "/home/ec2-user/DATA/freeIPA/ipa-data:/data:Z"
+      - "/home/{{ ansible_user }}/DATA/freeIPA/ipa-data:/data:Z"
 
 - name: Wait 7min before starting IPA provisioning user and groups
   ansible.builtin.pause:

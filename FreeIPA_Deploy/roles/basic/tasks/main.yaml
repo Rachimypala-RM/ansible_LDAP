@@ -33,13 +33,13 @@
       state: enabled
       immediate: yes
     loop:
-      - 80/tcp
-      - 3000/tcp
-      - 443/tcp
-      - 8080/tcp
-      - 9100/tcp
-      - 9090/tcp
-      - 123/udp
-      - 88/udp
-      - 464/udp
       - 53/udp
+      - 80/tcp
+      - 88/udp
+      - 123/udp
+      - 443/tcp
+      - 464/udp
+      - 3000/tcp
+      - 8080/tcp
+      - 9090/tcp
+      - 9100/tcp
