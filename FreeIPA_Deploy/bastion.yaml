@@ -20,5 +20,5 @@
   roles:
   - basic
   - ldap
-  - monitoring
-  - openShift
+#  - monitoring
+#  - openShift
