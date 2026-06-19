@@ -13,6 +13,7 @@
       remote_src: yes
 
   - name: Make oc-mirror binary executable
+    become: true
     ansible.builtin.file:
       path: /usr/bin/oc-mirror
       mode: 0755
@@ -21,7 +22,7 @@
   - name: Create Mirror Directory for OpenShift Mirror Registry (OMR)
     become: false
     ansible.builtin.file:
-      path: ~/MIRROR
+      path: "{{ ansible_facts.user_dir }}/MIRROR"
       state: directory
       mode: 0755
 
@@ -33,6 +34,7 @@
       remote_src: yes
   
   - name: Make mirror-regitry binary executable
+    become: true
     ansible.builtin.file:
-      path: /home/ec2-user/MIRROR/mirror-registry
+      path: "{{ ansible_facts.user_dir }}/MIRROR/mirror-registry"
       mode: 0755

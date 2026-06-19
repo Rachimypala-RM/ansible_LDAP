@@ -46,7 +46,7 @@
       - "464:464/udp"
       - "123:123/udp"
     volumes:
-      - "/home/{{ ansible_user }}/DATA/freeIPA/ipa-data:/data:Z"
+      - "{{ ansible_facts.user_dir }}/DATA/freeIPA/ipa-data:/data:Z"
 
 - name: Wait 7min before starting IPA provisioning user and groups
   ansible.builtin.pause:
